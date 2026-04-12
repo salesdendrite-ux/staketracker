@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans;
+  }
+  h1, h2, h3 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-4 py-2.5 bg-brand-500 text-white rounded-lg
+           font-medium text-sm hover:bg-brand-600 transition-colors duration-150
+           focus:outline-none focus:ring-2 focus:ring-brand-400 focus:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-4 py-2.5 bg-white text-brand-500 border border-brand-200
+           rounded-lg font-medium text-sm hover:bg-brand-50 transition-colors duration-150
+           focus:outline-none focus:ring-2 focus:ring-brand-400 focus:ring-offset-2;
+  }
+  .btn-danger {
+    @apply inline-flex items-center gap-2 px-4 py-2.5 bg-red-50 text-red-600 border border-red-200
+           rounded-lg font-medium text-sm hover:bg-red-100 transition-colors duration-150;
+  }
+  .input-field {
+    @apply w-full px-3.5 py-2.5 bg-white border border-gray-200 rounded-lg text-sm
+           placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-400
+           focus:border-transparent transition-all duration-150;
+  }
+  .card {
+    @apply bg-white rounded-xl border border-gray-100 shadow-sm;
+  }
+}
+
+/* Skeleton loader animation */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 6px;
+}
