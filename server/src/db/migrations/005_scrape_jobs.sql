@@ -7,5 +7,6 @@ CREATE TABLE IF NOT EXISTS scrape_jobs (
   completed_at TIMESTAMPTZ,
   error_message TEXT,
   stakeholders_found INTEGER DEFAULT 0,
-  changes_detected INTEGER DEFAULT 0
+  changes_detected INTEGER DEFAULT 0,
+  created_at TIMESTAMPTZ DEFAULT NOW()
 );
