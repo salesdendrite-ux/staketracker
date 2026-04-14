@@ -14,7 +14,7 @@ async function scrapeTheOrg(orgUrl) {
 
     browser = await puppeteer.launch({
       headless: 'new',
-      args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
+      args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--disable-gpu', '--disable-extensions', '--single-process', '--no-zygote'],
     });
 
     const page = await browser.newPage();
@@ -89,7 +89,7 @@ async function scrapeLinkedIn(linkedinUrl, sessionCookie) {
 
     browser = await puppeteerExtra.launch({
       headless: 'new',
-      args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
+      args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--disable-gpu', '--disable-extensions', '--single-process', '--no-zygote'],
     });
 
     const page = await browser.newPage();

@@ -17,7 +17,7 @@ export default function ScrapeButton({ companyId, onComplete }) {
       // Poll for completion
       const poll = setInterval(async () => {
         try {
-          const jobRes = await scrapeAPI.jobDetail(jobId);
+          const jobRes = await scrapeAPI.jobDetail(companyId, jobId);
           const job = jobRes.data;
 
           if (job.status === 'completed') {

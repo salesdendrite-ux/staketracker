@@ -50,12 +50,13 @@ async function processJob(job) {
 
     // Update company last_scraped_at and compute next_scrape_at
     const freqMs = SCRAPE_FREQUENCIES[company.scrape_frequency] || SCRAPE_FREQUENCIES.weekly;
+    const freqSeconds = Math.floor(freqMs / 1000);
     await pool.query(
       `UPDATE companies SET
         last_scraped_at = NOW(),
-        next_scrape_at = NOW() + INTERVAL '${Math.floor(freqMs / 1000)} seconds'
+        next_scrape_at = NOW() + make_interval(secs => $2)
        WHERE id = $1`,
-      [company_id]
+      [company_id, freqSeconds]
     );
 
     logger.info(`Scrape completed for ${company.name}`, { jobId, summary });

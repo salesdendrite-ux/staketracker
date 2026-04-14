@@ -69,8 +69,8 @@ export const changelogAPI = {
 // ─── Scraping ──────────────────────────────────────────────────────
 export const scrapeAPI = {
   trigger: (companyId) => api.post(`/companies/${companyId}/scrape`),
-  jobs: (companyId) => api.get(`/companies/${companyId}/scrape-jobs`),
-  jobDetail: (jobId) => api.get(`/scrape-jobs/${jobId}`),
+  jobs: (companyId) => api.get(`/companies/${companyId}/scrape/jobs`),
+  jobDetail: (companyId, jobId) => api.get(`/companies/${companyId}/scrape/jobs/${jobId}`),
 };
 
 // ─── Export ────────────────────────────────────────────────────────

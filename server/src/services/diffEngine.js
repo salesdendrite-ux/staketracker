@@ -138,7 +138,7 @@ async function runDiffEngine(companyId, scrapedPeople) {
   for (const existing of existingStakeholders) {
     if (matchedIds.has(existing.id)) continue;
     if (existing.status === 'inactive') continue; // already inactive, skip
-    if (existing.source === 'manual' && existing.status === 'new') continue; // don't penalize brand new manual entries
+    if (existing.source === 'manual') continue; // manual entries are not scraped, don't penalize
 
     const newMisses = (existing.consecutive_misses || 0) + 1;
 
